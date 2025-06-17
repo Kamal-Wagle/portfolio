@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { AdSidebar } from "@/components/ads/ad-sidebar"
-import { SmartAdBanner } from "@/components/ads/smart-ad-banner"
+import { AdBanner } from "@/components/ads/ad-banner"
 import Image from "next/image"
 import Link from "next/link"
 import { Download, MapPin, Calendar } from "lucide-react"
+import { StickyAd } from "@/components/ads/sticky-ad"
 
 const skills = [
   { name: "React/Next.js", level: 95 },
@@ -47,6 +48,7 @@ const timeline = [
 export default function AboutPage() {
   return (
     <div className="container mx-auto px-4 py-20">
+       <StickyAd position="top" />
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {/* Main Content */}
         <div className="lg:col-span-3">
@@ -59,11 +61,7 @@ export default function AboutPage() {
           </div>
 
           {/* Top banner ad */}
-          <SmartAdBanner 
-            type="leaderboard" 
-            className="mb-16" 
-            label="Advertisement"
-          />
+          <AdBanner size="leaderboard" className="mb-16" />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
             {/* Profile Section */}
@@ -138,13 +136,6 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Add an in-content ad after the skills section */}
-          <SmartAdBanner 
-            type="rectangle" 
-            className="my-12" 
-            label="Sponsored"
-          />
-
           {/* Experience Timeline */}
           <Card>
             <CardContent className="p-6">
@@ -174,38 +165,17 @@ export default function AboutPage() {
               </div>
             </CardContent>
           </Card>
-
-          {/* Add another ad after the timeline */}
-          <SmartAdBanner 
-            type="banner" 
-            className="mt-12" 
-            label="Advertisement"
-          />
         </div>
 
         {/* Right Sidebar - Ad Column */}
         <div className="lg:col-span-1">
-          <div className="sticky top-24 space-y-6">
-            {/* Top sidebar ad */}
-            <SmartAdBanner 
-              type="sidebar-top" 
-              label="Sponsored"
-            />
-
-            {/* Middle sidebar ad */}
-            <SmartAdBanner 
-              type="sidebar-middle" 
-              label="Advertisement"
-            />
-
-            {/* Bottom sidebar ad */}
-            <SmartAdBanner 
-              type="sidebar-bottom" 
-              label="Sponsored Content"
-            />
+          <div className="sticky top-24">
+            <AdSidebar />
           </div>
         </div>
       </div>
+      <StickyAd position="bottom" />
     </div>
+    
   )
 }

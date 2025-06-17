@@ -10,6 +10,7 @@ import { SmartAdBanner } from "@/components/ads/smart-ad-banner"
 import Image from "next/image"
 import Link from "next/link"
 import { Calendar, Clock, Search, User, ArrowRight } from "lucide-react"
+import { StickyAd } from "@/components/ads/sticky-ad"
 
 const categories = ["All", "Design", "Development", "Tutorial", "Career", "Technology"]
 
@@ -114,6 +115,7 @@ export default function BlogPage() {
 
   return (
     <PageWrapper pageType="blog">
+       <StickyAd position="top" />
       {/* Header */}
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">Blog</h1>
@@ -293,6 +295,7 @@ export default function BlogPage() {
           </div>
         </CardContent>
       </Card>
+      <StickyAd position="bottom" />
     </PageWrapper>
   )
 }

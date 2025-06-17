@@ -7,10 +7,12 @@ import { TestimonialsSection } from "@/components/testimonials-section"
 import { CallToAction } from "@/components/call-to-action"
 import { PageWrapper } from "@/components/layout/page-wrapper"
 import { SmartAdBanner } from "@/components/ads/smart-ad-banner"
+import { StickyAd } from "@/components/ads/sticky-ad"
 
 export default function HomePage() {
   return (
     <PageWrapper pageType="home" showSidebar={false}>
+       <StickyAd position="top" /> 
       <div className="flex flex-col">
         <HeroSection />
 
@@ -44,6 +46,7 @@ export default function HomePage() {
 
         <CallToAction />
       </div>
+      <StickyAd position="bottom" />
     </PageWrapper>
   )
 }

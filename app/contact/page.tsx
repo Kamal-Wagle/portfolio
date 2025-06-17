@@ -9,7 +9,8 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
-import { SmartAdBanner } from "@/components/ads/smart-ad-banner"
+import { AdBanner } from "@/components/ads/ad-banner"
+import { StickyAd } from "@/components/ads/sticky-ad"
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Send, Clock, CheckCircle } from "lucide-react"
 import Link from "next/link"
 
@@ -49,11 +50,7 @@ export default function ContactPage() {
 
   return (
     <div className="container mx-auto px-4 py-20">
-      {/* Sticky top ad */}
-      <SmartAdBanner 
-        type="banner" 
-        className="fixed top-16 left-0 right-0 z-30 hidden lg:block opacity-90"
-      />
+      <StickyAd position="top" />
 
       {/* Header */}
       <div className="text-center mb-16">
@@ -65,11 +62,7 @@ export default function ContactPage() {
       </div>
 
       {/* Top banner ad */}
-      <SmartAdBanner 
-        type="leaderboard" 
-        className="mb-16" 
-        label="Advertisement"
-      />
+      <AdBanner size="leaderboard" className="mb-16" />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
         {/* Contact Form */}
@@ -159,10 +152,7 @@ export default function ContactPage() {
         {/* Contact Information */}
         <div className="space-y-8">
           {/* Sidebar ad */}
-          <SmartAdBanner 
-            type="rectangle" 
-            label="Sponsored"
-          />
+          <AdBanner size="rectangle" />
 
           {/* Direct Contact */}
           <Card>
@@ -249,10 +239,7 @@ export default function ContactPage() {
           </Card>
 
           {/* Another sidebar ad */}
-          <SmartAdBanner 
-            type="square" 
-            label="Advertisement"
-          />
+          <AdBanner size="square" />
 
           {/* Availability */}
           <Card>
@@ -343,17 +330,9 @@ export default function ContactPage() {
       </div>
 
       {/* Bottom ad */}
-      <SmartAdBanner 
-        type="leaderboard" 
-        className="mt-16" 
-        label="Advertisement"
-      />
+      <AdBanner size="leaderboard" className="mt-16" />
 
-      {/* Sticky bottom ad for mobile */}
-      <SmartAdBanner 
-        type="mobile-banner" 
-        className="fixed bottom-0 left-0 right-0 z-30 lg:hidden bg-background/95 backdrop-blur"
-      />
+      <StickyAd position="bottom" />
     </div>
   )
 }
