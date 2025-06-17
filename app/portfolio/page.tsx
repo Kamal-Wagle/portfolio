@@ -5,8 +5,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
-import { AdBanner } from "@/components/ads/ad-banner"
-import { StickyAd } from "@/components/ads/sticky-ad"
+import { SmartAdBanner } from "@/components/ads/smart-ad-banner"
 import Image from "next/image"
 import Link from "next/link"
 import { ExternalLink, Github, Search } from "lucide-react"
@@ -111,7 +110,11 @@ export default function PortfolioPage() {
 
   return (
     <div className="container mx-auto px-4 py-20">
-      <StickyAd position="top" />
+      {/* Sticky top ad */}
+      <SmartAdBanner 
+        type="banner" 
+        className="fixed top-16 left-0 right-0 z-30 hidden lg:block opacity-90"
+      />
 
       {/* Header */}
       <div className="text-center mb-16">
@@ -123,7 +126,11 @@ export default function PortfolioPage() {
       </div>
 
       {/* Top banner ad */}
-      <AdBanner size="leaderboard" className="mb-12" />
+      <SmartAdBanner 
+        type="leaderboard" 
+        className="mb-12" 
+        label="Advertisement"
+      />
 
       {/* Filters and Search */}
       <div className="mb-12">
@@ -202,7 +209,10 @@ export default function PortfolioPage() {
             {/* Ad after every 3rd project */}
             {(index + 1) % 3 === 0 && index < filteredProjects.length - 1 && (
               <div className="col-span-full my-8">
-                <AdBanner size="banner" />
+                <SmartAdBanner 
+                  type="banner" 
+                  label="Sponsored"
+                />
               </div>
             )}
           </div>
@@ -216,9 +226,17 @@ export default function PortfolioPage() {
       )}
 
       {/* Bottom ad */}
-      <AdBanner size="leaderboard" className="mt-16" />
+      <SmartAdBanner 
+        type="leaderboard" 
+        className="mt-16" 
+        label="Advertisement"
+      />
 
-      <StickyAd position="bottom" />
+      {/* Sticky bottom ad for mobile */}
+      <SmartAdBanner 
+        type="mobile-banner" 
+        className="fixed bottom-0 left-0 right-0 z-30 lg:hidden bg-background/95 backdrop-blur"
+      />
     </div>
   )
 }

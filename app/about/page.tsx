@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { AdSidebar } from "@/components/ads/ad-sidebar"
-import { AdBanner } from "@/components/ads/ad-banner"
+import { SmartAdBanner } from "@/components/ads/smart-ad-banner"
 import Image from "next/image"
 import Link from "next/link"
 import { Download, MapPin, Calendar } from "lucide-react"
@@ -59,7 +59,11 @@ export default function AboutPage() {
           </div>
 
           {/* Top banner ad */}
-          <AdBanner size="leaderboard" className="mb-16" />
+          <SmartAdBanner 
+            type="leaderboard" 
+            className="mb-16" 
+            label="Advertisement"
+          />
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
             {/* Profile Section */}
@@ -134,6 +138,13 @@ export default function AboutPage() {
             </div>
           </div>
 
+          {/* Add an in-content ad after the skills section */}
+          <SmartAdBanner 
+            type="rectangle" 
+            className="my-12" 
+            label="Sponsored"
+          />
+
           {/* Experience Timeline */}
           <Card>
             <CardContent className="p-6">
@@ -163,12 +174,35 @@ export default function AboutPage() {
               </div>
             </CardContent>
           </Card>
+
+          {/* Add another ad after the timeline */}
+          <SmartAdBanner 
+            type="banner" 
+            className="mt-12" 
+            label="Advertisement"
+          />
         </div>
 
         {/* Right Sidebar - Ad Column */}
         <div className="lg:col-span-1">
-          <div className="sticky top-24">
-            <AdSidebar />
+          <div className="sticky top-24 space-y-6">
+            {/* Top sidebar ad */}
+            <SmartAdBanner 
+              type="sidebar-top" 
+              label="Sponsored"
+            />
+
+            {/* Middle sidebar ad */}
+            <SmartAdBanner 
+              type="sidebar-middle" 
+              label="Advertisement"
+            />
+
+            {/* Bottom sidebar ad */}
+            <SmartAdBanner 
+              type="sidebar-bottom" 
+              label="Sponsored Content"
+            />
           </div>
         </div>
       </div>
